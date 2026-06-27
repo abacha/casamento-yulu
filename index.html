@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luana & Yudi — Casamento</title>
+  <meta name="description" content="Casamento de Luana & Yudi — 19 de Setembro de 2026. Confirme sua presença e veja a lista de presentes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=9" />
+  <link rel="icon" href="assets/favicon.png" />
+</head>
+<body>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="topo">
+    <div class="hero-inner">
+      <p class="hero-pre">Vamos casar</p>
+      <h1 class="hero-names">Luana <span>&amp;</span> Yudi</h1>
+      <img class="hero-img" src="assets/hero.png" alt="Ilustração de Luana e Yudi" />
+      <p class="hero-date">19 de Setembro de 2026 · 10h30</p>
+      <p class="hero-tag">#yulu</p>
+      <a href="#confirmar" class="btn btn-primary">Confirmar presença</a>
+    </div>
+  </header>
+
+  <!-- ============ CONTAGEM ============ -->
+  <section class="countdown" id="contagem">
+    <img class="divider" src="assets/divider.png" alt="" />
+    <h2>Contagem regressiva</h2>
+    <div class="cd-grid" id="cdGrid" aria-live="polite">
+      <div class="cd-cell"><span class="cd-num" data-cd="dias">--</span><span class="cd-lbl">dias</span></div>
+      <div class="cd-cell"><span class="cd-num" data-cd="horas">--</span><span class="cd-lbl">horas</span></div>
+      <div class="cd-cell"><span class="cd-num" data-cd="min">--</span><span class="cd-lbl">min</span></div>
+      <div class="cd-cell"><span class="cd-num" data-cd="seg">--</span><span class="cd-lbl">seg</span></div>
+    </div>
+  </section>
+
+  <!-- ============ INFO / LOCAL ============ -->
+  <section class="info" id="local">
+    <h2>Quando &amp; Onde</h2>
+    <div class="info-cards">
+      <div class="info-card">
+        <h3>📅 Data</h3>
+        <p class="big">19 de Setembro de 2026</p>
+        <p>Sábado, às 10h30</p>
+      </div>
+      <div class="info-card">
+        <h3>📍 Local</h3>
+        <p class="big">Sítio Aliança dos Avós</p>
+        <p id="endereco">Santa Isabel — SP</p>
+        <a id="mapsLink" class="btn btn-outline" href="#" target="_blank" rel="noopener">Abrir no mapa</a>
+        <p class="maps-aviso">⚠️ Use o Google Maps para chegar — o Waze leva pelo caminho errado.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RSVP ============ -->
+  <section class="rsvp" id="confirmar">
+    <img class="divider" src="assets/divider.png" alt="" />
+    <h2>Confirme sua presença</h2>
+    <p class="rsvp-sub">Por favor, confirme até <strong>9 de agosto de 2026</strong>.</p>
+    <form id="rsvpForm" class="rsvp-form">
+      <label>Seu nome completo
+        <input type="text" name="nome" required placeholder="Nome e sobrenome" />
+      </label>
+
+      <fieldset>
+        <legend>Você vai comparecer?</legend>
+        <label class="radio"><input type="radio" name="confirma" value="Sim" required /> Sim, estarei lá! 🎉</label>
+        <label class="radio"><input type="radio" name="confirma" value="Não" /> Infelizmente não poderei 😢</label>
+      </fieldset>
+
+      <div id="condicional">
+        <fieldset>
+          <legend>Você vai consumir bebida alcoólica?</legend>
+          <label class="radio"><input type="radio" name="bebe" value="Sim" /> Sim 🍷</label>
+          <label class="radio"><input type="radio" name="bebe" value="Não" /> Não 🥤</label>
+        </fieldset>
+
+        <fieldset class="guests-counts">
+          <legend>Acompanhantes por faixa etária</legend>
+          <p class="field-hint">Selecione quantos acompanhantes você levará em cada faixa. Os nomes aparecem abaixo.</p>
+          <label class="count-row">Até 5 anos
+            <select name="qtd_ate5" data-faixa="ate5"></select>
+          </label>
+          <label class="count-row">De 6 a 10 anos
+            <select name="qtd_ate10" data-faixa="ate10"></select>
+          </label>
+          <label class="count-row">Acima de 10 anos
+            <select name="qtd_acima10" data-faixa="acima10"></select>
+          </label>
+        </fieldset>
+
+        <div id="guestsFields"></div>
+      </div>
+
+      <label>Mensagem para os noivos (opcional)
+        <textarea name="mensagem" rows="3" placeholder="Deixe um recadinho 💌"></textarea>
+      </label>
+
+      <button type="submit" class="btn btn-primary" id="rsvpBtn">Enviar confirmação</button>
+      <p id="rsvpMsg" class="rsvp-feedback" role="status"></p>
+    </form>
+  </section>
+
+  <!-- ============ PRESENTES ============ -->
+  <section class="gifts" id="presentes">
+    <img class="divider" src="assets/divider.png" alt="" />
+    <h2>Lista de Presentes</h2>
+    <p class="gifts-sub">
+      Sua presença já é o maior presente! Mas se quiser nos ajudar a começar essa nova fase,
+      escolha um ou mais presentes (pode mais de um de cada!) e contribua via <strong>Pix</strong> — o valor vai direto para nós. 💛
+    </p>
+    <div class="gift-grid" id="giftGrid"></div>
+    <div class="cart-bar" id="cartBar" hidden>
+      <span class="cart-summary" id="cartSummary">0 itens</span>
+      <span class="cart-total" id="cartTotal">R$ 0,00</span>
+      <button class="btn btn-primary" id="cartCheckout">Presentear via Pix</button>
+    </div>
+  </section>
+
+  <!-- ============ MODAL PIX ============ -->
+  <div class="modal" id="pixModal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
+      <h3 id="pixTitle">Seu presente</h3>
+      <div class="pix-items" id="pixItems"></div>
+      <p class="pix-amount" id="pixAmount"></p>
+      <div class="qr-wrap"><div id="qrCanvas"></div></div>
+      <p class="pix-help">Escaneie com o app do seu banco ou copie o código abaixo:</p>
+      <div class="pix-copy">
+        <input type="text" id="pixCode" readonly />
+        <button class="btn btn-outline" id="copyBtn">Copiar</button>
+      </div>
+      <p class="pix-receiver">Recebedor: <strong>Vitor Yudi Hashimoto</strong></p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Luana &amp; Yudi · 19.09.2026</p>
+    <p class="footer-tag">#yulu</p>
+  </footer>
+
+  <script src="vendor/qrcode.min.js?v=9"></script>
+  <script src="config.js?v=9"></script>
+  <script type="module" src="app.js?v=9"></script>
+</body>
+</html>
