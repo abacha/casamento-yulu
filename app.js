@@ -285,3 +285,25 @@ form.addEventListener("submit", async (e) => {
     rsvpBtn.textContent = "Enviar confirmação";
   }
 });
+
+// ============================================================
+//  Easter egg — clique 5x no #yulu do rodapé revela o crédito.
+//  (E um aceno no console pra quem abrir o DevTools.)
+// ============================================================
+(() => {
+  const tag = document.getElementById("footerTag");
+  const egg = document.getElementById("easterEgg");
+  if (!tag || !egg) return;
+  let clicks = 0;
+  let timer = null;
+  tag.addEventListener("click", () => {
+    clicks++;
+    clearTimeout(timer);
+    timer = setTimeout(() => { clicks = 0; }, 1500);
+    if (clicks >= 5) {
+      egg.classList.add("show");
+      clicks = 0;
+    }
+  });
+  console.log("%c💚 Feito por Adriano, Enzo & Cia.", "color:#6f8f6a;font-size:14px;font-weight:bold;");
+})();
